@@ -1,5 +1,5 @@
 #Lab 1 - Renan Favero
-
+a= 1
 #including the name
 name = input("Hello. What is your name?")
 
