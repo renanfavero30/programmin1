@@ -1,5 +1,3 @@
-#14.2 [M0] Phone directory
-
 """
 area_code, prefix, line_num =input("Paste phone nro: ").split() #split between spaces
 area_code, prefix, line_num = int(area_code), int(prefix), int(line_num)
