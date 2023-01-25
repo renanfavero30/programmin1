@@ -55,6 +55,21 @@ game_continue = True
 
 
 # Divided
-20% 7 = 6#Modul
-20//7 = 2 #integer as result
-20/7 = #float as a result
+20% 7 = 6# Modulo
+20//7 = 2 # integer as result
+20/7 = # float as a result
+
+a = 3
+a = a * 3
+a *= 3 # compound operations
+
+a = a % 5
+a %= 5
+
+# TEST
+a = 15
+b = 5
+print(a/b)
+
+c 12.0
+print(c//b)
