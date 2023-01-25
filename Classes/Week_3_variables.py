@@ -71,5 +71,5 @@ a = 15
 b = 5
 print(a/b)
 
-c 12.0
+c = 12.0
 print(c//b)
