@@ -1,0 +1,9 @@
+input_plz = -1
+while input_plz != 0:
+    input_plz = int(input("Enter a positive integer:"))
+
+    if input_plz < 0:
+        print("Error: negative number. Terminating")
+        continue  # skip everything after the continue and continue back to the begining of while loop
+
+    print(f'You entered {input_plz}')
