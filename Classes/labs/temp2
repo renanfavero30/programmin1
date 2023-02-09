@@ -1,0 +1,5 @@
+def hex_char_decode(digit) 
+Decodes a single hexadecimal digit and returns its value. 
+ 
+def hex_string_decode(hex) 
+Decodes an entire hexadecimal string and returns its value.
