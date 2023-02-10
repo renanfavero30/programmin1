@@ -22,6 +22,9 @@ def hex_string_decode(hex):
     # A15 = 2581
 
     # Exclude the prefix if it has
+    #list[first_index:last_index+1]
+    number_input[]
+    number_input[0:2]
     number_input = number_input.removeprefix('0x')
     i = 1
     total = 0
@@ -93,39 +96,38 @@ def binary_to_hex(binary):
 #print(f'hex = {binary_to_hex(101010)}')
 
 
+def main():
 
+    close = 0
+    while close == 0:
+        option = int(input(f"Decoding Menu\n"
+              " -------------\n"
+              "1. Decode hexadecimal\n" 
+              "2. Decode binary\n"
+              "3. Convert binary to hexadecimal\n" 
+              "4. Quit\n"
+              "\n" 
+              "Please enter an option: "))
 
-close = 0
-while close == 0:
-    option = int(input(f"Decoding Menu\n"
-          " -------------\n"
-          "1. Decode hexadecimal\n" 
-          "2. Decode binary\n"
-          "3. Convert binary to hexadecimal\n" 
-          "4. Quit\n"
-          "\n" 
-          "Please enter an option: "))
+        # Calculate the result
+        if option == 1:
+            number_input = input("Please enter the numeric string to convert: ")
+            result = hex_string_decode(number_input)
+        elif option == 2:
+            number_input = input("Please enter the numeric string to convert: ")
+            result = binary_string_decode(number_input)
+        elif option == 3:
+            number_input = input("Please enter the numeric string to convert: ")
+            result = binary_to_hex(number_input)
+        elif option == 4:
+            print("Goodbye!")
+            exit()
+        else:
+            print("Error: Invalid selection! Terminating program.")
+            exit()
 
-
-    # Calculate the result
-    if option == 1:
-        number_input = input("Please enter the numeric string to convert: ")
-        result = hex_string_decode(number_input)
-    elif option == 2:
-        number_input = input("Please enter the numeric string to convert: ")
-        result = binary_string_decode(number_input)
-    elif option == 3:
-        number_input = input("Please enter the numeric string to convert: ")
-        result = binary_to_hex(number_input)
-    elif option == 4:
-        print("Goodbye!")
-        exit()
-    else:
-        print("Error: Invalid selection! Terminating program.")
-        exit()
-
-    # Output the result
-    print(f'Result: {result}')
+        # Output the result
+        print(f'Result: {result}')
 
 
 if __name__ == "__main__":
