@@ -36,7 +36,8 @@ def main():
                 exit
             case 1:
                 handle_option_1()
-                pass
+            case 2:
+                handle_option_2()
 
 
 
