@@ -1,5 +1,4 @@
-#if __name__ == "__main__":
- #   main()
+# Renan Favero
 
 # FUNCTIONS:
 
@@ -23,9 +22,9 @@ def hex_string_decode(hex):
 
     # Exclude the prefix if it has
     #list[first_index:last_index+1]
-    number_input[]
-    number_input[0:2]
-    number_input = number_input.removeprefix('0x')
+    prefix = '0x'
+    if number_input[0:2] == prefix:
+        number_input = number_input[2:]
     i = 1
     total = 0
     # create a loop for each character:
@@ -48,7 +47,9 @@ def hex_string_decode(hex):
 def binary_string_decode(binary):
     number_input = str(binary)
     # Exclude the prefix if it has
-    number_input = number_input.removeprefix('0b')
+    prefix = '0b'
+    if number_input[0:2] == prefix:
+        number_input = number_input[2:]
     i = 0
     total = 0
     # create a loop for each character:
@@ -79,15 +80,15 @@ def dec_to_hex(dechimal_nums):
             if reminder > 9:
                 reminder = (chr(reminder + 55)) # transform in hexa
             hexa = ("".join([str(reminder), str(hexa)]))
-            hexa = hexa[:-1]
-            print(hexa)
+            hexa = hexa[:-2]
+            #print(hexa)
             stop = 1
     return hexa
 
 #Decodes a binary string, re-encodes it as hexadecimal, and returns the hexadecimal string.
 def binary_to_hex(binary):
     decode = binary_string_decode(binary)
-    print(f'decode= {decode}')
+    #print(f'decode= {decode}')
     number =  dec_to_hex(decode)
     return number
 

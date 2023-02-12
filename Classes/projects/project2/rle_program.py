@@ -47,16 +47,28 @@ def handle_option_1():
     # if fail then tell user and display menu again
 
 def handle_option_2():
-    #print("Test option 2")
-    data = gfx.ConsoleGfx.test_image
+    test_image = gfx.ConsoleGfx.test_image
     print("Test image data loaded.")
+    return test_image
+
     # if success then tell the user and display menu again
     # save the file after getting the user input
 
     # if fail then tell user and display menu again - should I do it?
 def handle_option_3():
-    pass
+    # Reads RLE data from the user in decimal notation with delimiters (smiley example):
+    rle_data_w_delimtier = input("Enter an RLE string to be decoded: ")
+    return rle_data_w_delimtier
+def handle_option_4():
+    # Reads RLE data from the user in hexadecimal notation without delimiters (smiley example):
+    rle_data_hex = input("Enter the hex string holding RLE data: ")
+    return rle_data_hex
+
 # start the program
+def handle_option_6():
+    # Displaying the Image
+    # Displays the current image by invoking the ConsoleGfx.display_image(image_data) method.
+    gfx.ConsoleGfx.display_image(gfx.ConsoleGfx.test_image)
 
 def main():
 
@@ -90,15 +102,22 @@ def main():
                     continue_app = False
                 case 1:
                     handle_option_1()
+                    print('Test1 - Done')
                 case 2:
-                    #print("TEST")
                     handle_option_2()
+                    print('Test2 - Done')
                 case 3:
-                    handle_option_1()
+                    handle_option_3()
+                    print('Test3 - Done')
                 case 4:
-                    handle_option_2()
-
-
+                    handle_option_4()
+                    print('Test4 - Done')
+                case 5:
+                    handle_option_5()
+                    print('Test5 - Done')
+                case 6:
+                    handle_option_6()
+                    print('Test6 - Done')
 
 
 
