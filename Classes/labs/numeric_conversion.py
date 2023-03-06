@@ -66,7 +66,7 @@ def binary_string_decode(binary):
     return total
 #print(f"binary {binary_string_decode(101010)}")
 def dec_to_hex(dechimal_nums):
-    hexa = "0b"
+    hexa = ""
     stop = 0
     temp = int(dechimal_nums)
     while stop == 0:

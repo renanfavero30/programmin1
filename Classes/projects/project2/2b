@@ -1,0 +1,6 @@
+to_hex_string
+count_runs
+encode_rle
+get_decoded_length
+decode_rle
+string_to_data
