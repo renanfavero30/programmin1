@@ -48,26 +48,26 @@ def is_valid(board,row, col):
 
 
 if __name__ == "__main__":
-    board = initialize_board(4,5)
-    print("Player 1: x\nPlayer 2: o\n")
-    print_board(board)
+    #board = initialize_board(4,5)
+    #print("Player 1: x\nPlayer 2: o\n")
+    #print_board(board)
 
     player = 1
     chip = 'x'
 
     while True:
-        print(f"Player {player}'s Turn ({chip}): ")
-        row = int(input("Enter a row number (0, 1, or 2)"))
-        col = int(input("Enter a column number (0, 1, or 2)"))
-
-        while not is_valid(board,row,col):
-            if row < 0 or col < 0 or row > 2 or col > 2:
-                print(f"This position is off the bounds of the board ")
-            elif board[row][col] != "-":
-                print("Someone has already made a move at this position")
-
-            row = int(input("Enter a row number (0, 1, or 2)"))
-            col = int(input("Enter a column number (0, 1, or 2)"))
+        #print(f"Player {player}'s Turn ({chip}): ")
+        col = int(input("What would you like the height of the board to be?"))
+        row = int(input("What would you like the length of the board to be"))
+        input_valid = False
+        while input_valid = False:
+            if row < 4 or col < 4:
+                input_valid = False
+                print(f"The board need have more that 4x4 dimension")
+                row = int(input("Enter a row number (0, 1, or 2)"))
+                col = int(input("Enter a column number (0, 1, or 2)"))
+            else:
+                return input_valid = True
 
         mark_square(board, row, col, chip)
 
