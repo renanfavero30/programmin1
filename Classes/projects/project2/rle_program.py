@@ -9,7 +9,7 @@ menu_string = """RLE Menu
 --------
 0. Exit
 1. Load File
-2. Load Test testfiles
+2. Load Test Image
 3. Read RLE String
 4. Read RLE Hex String
 5. Read Data Hex String
@@ -109,8 +109,22 @@ def string_to_rle(rle_string):
         if run_value < 10:
             run_value = int(value)
         result.extend([run, run_value])
-
     return result
+
+def to_rle_string(rle_data):
+    #rle_data = [15, 15, 6, 4]
+    result = ""
+    rle_data = "".join([char for char in rle_data if char.isdigit()])
+    # for each run, display run lengh in decima(2digits) and the run value in hexadecimal 1 digit, delimited by :
+    for i in range(0, len(rle_data)-1, 2):
+        decimal = (rle_data[i])
+        hexadecimal = (rle_data[i + 1])
+        if int(hexadecimal) > 9:
+            hexadecimal = str(chr(hexadecimal + 87))  # transform in hexa
+        pair = (f':{decimal}{hexadecimal}')
+        result += pair
+    rle_string = result[1:]
+    return rle_string
 
 """
 This function should return a boolean 
@@ -124,58 +138,12 @@ def is_input_valid(input):
 def handle_option_0():
     pass
 
-def handle_option_1():
-    # ask user for file path
-    #user_file = input("Enter name of file to load: ")
-    # #store ConsoleGfx.load_file(filename) in image_data variable
-    # test:
-    user_file = 'testfiles/uga.gfx'
-
-    # access the file
-    image_data = gfx.ConsoleGfx.load_file(user_file)
-    return image_data
-
-    # if success then tell the user and display menu again
-    # save the file after getting the user input
-
-    # if fail then tell user and display menu again
-
-def handle_option_2():
-    # store the ConsoleGfx.test_image into image_data variable
-    image_data = gfx.ConsoleGfx.test_image
-    print("Test image data loaded.")
-    return image_data
-
-    # if success then tell the user and display menu again
-    # save the file after getting the user input
-
-    # if fail then tell user and display menu again - should I do it?
-def handle_option_3():
-    # Reads RLE data from the user in decimal notation with delimiters (smiley example):
-    rle_data_w_delimtier = input("Enter an RLE string to be decoded: ")
-    return rle_data_w_delimtier
-def handle_option_4():
-    # Reads RLE data from the user in hexadecimal notation without delimiters (smiley example):
-    rle_data_hex = input("Enter the hex string holding RLE data: ")
-    return rle_data_hex
-
-def handle_option_5():
-    pass
-
-# start the program
-def handle_option_6(image_data):
-    # Displaying the testfiles
-    # Displays the current image by invoking the ConsoleGfx.display_image(image_data) method.
-    # display image data using ConsoleGfx.display_image(image_data)
-    gfx.ConsoleGfx.display_image(image_data)
-    #gfx.ConsoleGfx.display_image(gfx.ConsoleGfx.test_image)
-
 def main():
 
     #1) Display welcome message
     print("Welcome to the RLE image encoder!")
     print()
-    print("Displaying Spectrum testfiles: ")
+    print("Displaying Spectrum Image: ")
 
     #2) Display color test (ConsoleGfx.test_rainbow)
     gfx.ConsoleGfx.display_image(gfx.ConsoleGfx.test_rainbow)
@@ -199,27 +167,49 @@ def main():
         else:
             # Transform to a int number
             option = int(option)
-            match option:
-                case 0:
-                    continue_app = False
-                case 1:
-                    image_data = handle_option_1()
-                    #print('Test1 - Done')
-                case 2:
-                    image_data = handle_option_2()
-                    #print('Test2 - Done')
-                case 3:
-                    handle_option_3()
-                    print('Test3 - Done')
-                case 4:
-                    handle_option_4()
-                    print('Test4 - Done')
-                case 5:
-                    handle_option_5()
-                    print('Test5 - Done')
-                case 6:
-                    handle_option_6(image_data)
-                    #print('Test6 - Done')
+
+        # Handle the menu optios
+        if option == 0:
+            continue_app = False
+
+        elif option == 1:
+            user_file = input("Enter name of file to load: ")
+            image_data = gfx.ConsoleGfx.load_file(user_file)
+            return image_data
+            print('Test1 - Done')
+
+        elif option == 2:
+            image_data = gfx.ConsoleGfx.test_image
+            print("Test image data loaded.")
+            return image_data
+            print('Test2 - Done')
+
+        elif option == 3:
+            rle_data = input("Enter an RLE string to be decoded: ")
+            #print(rle_data)
+            print('Test3 - Done')
+
+        elif option == 4:
+            rle_data = input("Enter the hex string holding RLE data: ")
+            print('Test4 - Done')
+
+        elif option == 5:
+            data_string = input("Enter the hex string holding flat data: ")
+            print('Test5 - Done')
+
+        elif option == 6:
+            gfx.ConsoleGfx.display_image(image_data)
+            print('Test6 - Done')
+
+        elif option == 7:
+            rle_string = to_rle_string(rle_data)
+            print(f"RLE representation: {rle_string}")
+            print('Test7 - Done')
+
+        elif option == 8:
+            rle = string_to_rle(rle_string)
+            print(print(f"RLE representation: {rle}"))
+            print('Test8 - Done', rle)
 
 
 if __name__ == "__main__":
