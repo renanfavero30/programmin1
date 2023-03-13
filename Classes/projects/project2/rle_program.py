@@ -13,24 +13,25 @@ menu_string = """RLE Menu
 3. Read RLE String
 4. Read RLE Hex String
 5. Read Data Hex String
-6. Display testfiles
+6. Display Image
 7. Display RLE String
 8. Display Hex RLE Data
-9. Display Hex Flat Data"""
+9. Display Hex Flat Data
+"""
 
 # helper functions
 
 def to_hex_string(data):
     # Translates data (RLE or raw) a hexadecimal string (without delimiters). This method can also aid debugging.
     # Ex: to_hex_string([3, 15, 6, 4]) yields string "3f64".
-    result = ""
+    hex_string = ""
     for number in data:
         if number > 9:
-            result += str(chr(number + 87))  # transform in hexa
+            hex_string += str(chr(number + 87))  # transform in hexa
         else:
-            result += str(number)
-
-    return result
+            hex_string += str(number)
+    data_string = hex_string
+    return data_string
 
 
 def count_runs(arr):
@@ -69,7 +70,8 @@ def encode_rle(flat_data):
             repetitions = 1  # restart the repetitions
         if index == len(flat_data)-1:
             result.extend([repetitions, current])
-    return result
+        encoded_flat_data = result
+    return encoded_flat_data
 
 def get_decoded_length(rle_data):
 # Returns decompressed size RLE data; used to generate flat data from RLE encoding. (Counterpart to #2)
@@ -88,7 +90,8 @@ def decode_rle(rle_data):
         value = rle_data[idx + 1]
         repetitions = rle_data[idx]
         res.extend([value] * repetitions)
-    return res
+        flat_data = res
+    return flat_data
 
 def string_to_data(data_string):
     result = []
@@ -97,7 +100,8 @@ def string_to_data(data_string):
         if value < 10:
             value = int(item)
         result.extend([value])
-    return result
+        rle_data = result
+    return rle_data
 
 def string_to_rle(rle_string):
     result = []
@@ -114,7 +118,7 @@ def string_to_rle(rle_string):
 def to_rle_string(rle_data):
     #rle_data = [15, 15, 6, 4]
     result = ""
-    rle_data = "".join([char for char in rle_data if char.isdigit()])
+    #rle_data = "".join([char for char in rle_data if char.isdigit()])
     # for each run, display run lengh in decima(2digits) and the run value in hexadecimal 1 digit, delimited by :
     for i in range(0, len(rle_data)-1, 2):
         decimal = (rle_data[i])
@@ -168,48 +172,61 @@ def main():
             # Transform to a int number
             option = int(option)
 
-        # Handle the menu optios
+        # Handle the menu options
         if option == 0:
             continue_app = False
 
         elif option == 1:
             user_file = input("Enter name of file to load: ")
             image_data = gfx.ConsoleGfx.load_file(user_file)
-            return image_data
-            print('Test1 - Done')
+            # return image_data
+            #print('Test1 - Done')
 
         elif option == 2:
             image_data = gfx.ConsoleGfx.test_image
             print("Test image data loaded.")
-            return image_data
-            print('Test2 - Done')
+            # return image_data
+            #print('Test2 - Done')
 
         elif option == 3:
-            rle_data = input("Enter an RLE string to be decoded: ")
-            #print(rle_data)
-            print('Test3 - Done')
+            rle_string = input("Enter an RLE string to be decoded: ")
+            rle_data = string_to_rle(rle_string)
+            decode_data = decode_rle(rle_data)
+            #print(decode_data)
+            # print('Test3 - Done')
 
         elif option == 4:
-            rle_data = input("Enter the hex string holding RLE data: ")
-            print('Test4 - Done')
+            rle_string_data = input("Enter the hex string holding RLE data: ")
+            rle_data = string_to_data(rle_string_data)
+            decode_data = decode_rle(rle_data)
+            # print(rle_data)
+            # print('Test4 - Done')
 
         elif option == 5:
             data_string = input("Enter the hex string holding flat data: ")
-            print('Test5 - Done')
+            decode_data=to_rle_string(data_string)
+            # print('Test5 - Done')
 
         elif option == 6:
+            print("Displaying image...")
             gfx.ConsoleGfx.display_image(image_data)
-            print('Test6 - Done')
+            # print('Test6 - Done')
 
         elif option == 7:
-            rle_string = to_rle_string(rle_data)
+            encode = encode_rle(decode_data)
+            rle_string = to_rle_string(encode)
             print(f"RLE representation: {rle_string}")
-            print('Test7 - Done')
+            # print('Test7 - Done')
 
         elif option == 8:
-            rle = string_to_rle(rle_string)
-            print(print(f"RLE representation: {rle}"))
-            print('Test8 - Done', rle)
+            encode = encode_rle(decode_data)
+            rle = to_hex_string(encode)
+            print(f"RLE hex values: {rle}")
+            # print('Test8 - Done')
+
+        elif option == 9:
+            rle = to_hex_string(decode_data)
+            print(f"Flat hex values: {rle}")
 
 
 if __name__ == "__main__":
