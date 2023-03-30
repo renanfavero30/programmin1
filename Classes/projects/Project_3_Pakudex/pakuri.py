@@ -15,6 +15,9 @@ class Pakuri:
         self.__defense = (len(species) * 5) + 17
         self.__speed = (len(species) * 6) + 13
 
+    # getters and setters
+    # getters: retreive the values of an attribute
+    
     def get_species(self):
         return self.__species
 
