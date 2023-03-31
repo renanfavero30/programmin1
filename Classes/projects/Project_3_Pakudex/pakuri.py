@@ -9,6 +9,7 @@ that should not be touch but it doesnt prevent to be touched.
 """
 
 class Pakuri:
+    # antPakuri = new Pakuri('ant')
     def __int__(self, species):
         self.__species = species
         self.__attack = (len(species) * 7) + 9
