@@ -3,8 +3,9 @@ from Classes.projects.Project_3_Pakudex.pakuri import Pakuri
 
 class Pakudex:
     def __init__(self, capacity=20):
-        self.capacity = capacity
-        self.pakuris = []  # add one pakury per time (append 1 per time)
+        self.capacity = capacity # default value is 20
+        self.pakuris = []  # add one pakury per time (append 1 per time) | store a list of pakuri objects
+        self.size = 0 # keep track of the # concrete pakuri in pakudex
 
     def get_size(self):
         return len(self.pakuris)
@@ -12,6 +13,17 @@ class Pakudex:
     def get_capacity(self):
         return self.capacity
 
+    def add_pakuri2(self, species):
+    # 1. Check duplicates - > return False
+        if species in self.get_species_array():
+            pass
+    #2. When the list is full = False
+
+    #3. Add a new pakuri object into the list
+        self.pakuri.append(Pakuri(species)) #create a Pakuri
+        increment self.size
+        return True
+        pass
     def get_species_array(self):
         if self.get_size() == 0:
             return None
@@ -20,6 +32,9 @@ class Pakudex:
             for pakuri in self.pakuris:
                 list_species.append(pakuri.get_species())
             return list_species
+
+    def ger_species_array2(self):
+
 '''
 Action 1:
 Hau's Pakudex = new Pakudex(5)
