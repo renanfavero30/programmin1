@@ -22,6 +22,9 @@ class Pakuri:
     def get_species(self):
         return self.__species
 
+    def set_species(self, new_species):
+        self.__species = new_species
+
     def get_attack(self):
         return self.__attack
 
