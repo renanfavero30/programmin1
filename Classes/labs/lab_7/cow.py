@@ -10,7 +10,7 @@ class Cow:
     def get_image(self):
         return self.image
 
-    def set_image(self,image):
+    def set_image(self, image):
         self.image = image
 
 
