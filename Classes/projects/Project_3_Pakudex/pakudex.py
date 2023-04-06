@@ -1,6 +1,6 @@
 from Classes.projects.Project_3_Pakudex.pakuri import Pakuri
 
-
+# Create the class pakudex
 class Pakudex:
     def __init__(self, capacity=20):
         self.capacity = capacity # default value is 20
@@ -16,14 +16,16 @@ class Pakudex:
     def add_pakuri2(self, species):
     # 1. Check duplicates - > return False
         if species in self.get_species_array():
-            pass
+            print("Specie duplicated")
     #2. When the list is full = False
-
+        if self.capacity == self.size
+            print("Error: Pakudex is full!")
     #3. Add a new pakuri object into the list
-        self.pakuri.append(Pakuri(species)) #create a Pakuri
-        increment self.size
-        return True
-        pass
+        else:
+            self.pakuri.append(Pakuri(species)) #create a Pakuri
+            self.size += 1
+            return True
+
     def get_species_array(self):
         if self.get_size() == 0:
             return None
@@ -33,7 +35,7 @@ class Pakudex:
                 list_species.append(pakuri.get_species())
             return list_species
 
-    def ger_species_array2(self):
+
 
 '''
 Action 1:
@@ -80,7 +82,6 @@ HauPakudex{
         }
     ]
 '''
-
     def get_stats(self, species):
         list_stats = []
         for pakuri in self.pakuris:
@@ -113,7 +114,7 @@ HauPakudex{
         
         '''
 
-    def add_pakurit(self, species): # species is a string object
+    def add_pakuri(self, species): # species is a string object
         # When can you add?
         # 1. if you have capacity
         # 2. If the species does not exist in your pakudex
@@ -132,13 +133,16 @@ HauPakudex{
         for pakuri in self.pakuris:
             if pakuri.get_species() == species:
                 list_has_species = True
-                break
+
 
         # for each pakuri in pakuris
         # get the species of the pakuri
         # check if species of pakuri is equal to species in argument to function
         # if equal, set list_has_species to true and break from loop
         # else continue with loop
+        if len(self.pakuris) >= self.capacity:
+            status = "full"
+            return status
 
         if len(self.pakuris) < self.capacity and list_has_species == False  :
             self.pakuris.append(Pakuri(species))
@@ -155,8 +159,8 @@ HauPakudex{
         list_has_species = False
         for pakuri in self.pakuris:
             if pakuri.get_species() == species:
-                list_has_species = True
-                break
+                list_has_species = False
+
 
         # at this line you have a variable that tells you if your list contains the species or not
         # variable is list_has_species
