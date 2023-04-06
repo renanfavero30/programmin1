@@ -1,0 +1,19 @@
+Welcome to Pakudex: Tracker Extraordinaire!
+Enter max capacity of the Pakudex: ???
+Please enter a valid size.
+Enter max capacity of the Pakudex: 3
+The Pakudex can hold 3 species of Pakuri.
+Pakudex Main Menu
+-----------------
+1. List Pakuri
+2. Show Pakuri
+3. Add Pakuri
+4. Evolve Pakuri
+5. Sort Pakuri
+6. Exit
+What would you like to do? 1
+No Pakuri in Pakudex yet!
+
+
+Enter the name of the species to add: PsyGoose
+Pakuri species PsyGoose successfully added
