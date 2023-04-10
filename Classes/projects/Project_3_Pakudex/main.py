@@ -1,8 +1,8 @@
 from pakudex import Pakudex
 
-pakudex = Pakudex(capacity =2) # we dont need return to the pakuri class, we use this object to manipulate
-species = "psygoose"
-pakudex.add_pakuri2(species)
+#pakudex = Pakudex(capacity=20) # we dont need return to the pakuri class, we use this object to manipulate
+#species = "psygoose"
+
 
 main_menu= ("""
 Pakudex Main Menu\n
@@ -27,13 +27,13 @@ while end_app == 0:
     no_option = 0
     while no_option == 0:
         choice = int(input(main_menu))
-        if choice is not in range(1, 6):
+        if choice not in range(1, 6):
             no_option =0
         if choice == 1:
             Pakudex.get_species_array()
         if choice == 2:
             name_specie=(input("Enter the name of the species to display:"))
-            if Pakudex.get_stats(name_specie) == None
+            if Pakudex.get_stats(name_specie) == None:
                 print("Error: No such Pakuri!")
                 no_option == 0
             else:
