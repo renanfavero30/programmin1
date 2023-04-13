@@ -18,4 +18,5 @@ class Dragon(Cow):
         self.image = image
 
     def can_breathe_fire(self):
-        return True
+        if Cow.get_name() == "dragon":
+            return True

@@ -34,6 +34,11 @@ elif args[1] == "-n":
     else:
         print(message)
         print(preferred_cow.get_image())
+        if preferred_cow.can_breathe_fire == True:
+            print("This dragon can breathe fire.")
+        else:
+            print("This dragon cannot breathe fire.")
+
 else:
     # find the specific cow based o the name
     name_of_cow = "heifer"
@@ -45,3 +50,5 @@ else:
 
 #print(cows[0].name)
 #print(cows[0].image) - not working
+#preferred_cow = "dragon"
+#print(preferred_cow.can_breathe_fire)

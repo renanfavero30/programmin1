@@ -14,7 +14,8 @@ For the IceDragon type, this method should always return False.
 
 class IceDragon(Dragon):
     def __init__(self, name, image):
-        Dragon.__init__(self, name, image) #How do I know what arguments include here?
+        Dragon.__init__(self, name, image)  # How do I know what arguments include here?
 
     def can_breathe_fire(self):
-        return False
+        if Cow.get_name() == "ice-dragon":
+            return False
