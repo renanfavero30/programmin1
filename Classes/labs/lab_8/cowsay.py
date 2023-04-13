@@ -1,5 +1,7 @@
 from heifer_generator import HeiferGenerator
 import sys
+import Dragon
+import IceDragon
 
 #a list of cow objects
 cows = HeiferGenerator.get_cows()
@@ -34,10 +36,11 @@ elif args[1] == "-n":
     else:
         print(message)
         print(preferred_cow.get_image())
-        if preferred_cow.can_breathe_fire == True:
-            print("This dragon can breathe fire.")
-        else:
-            print("This dragon cannot breathe fire.")
+        if isinstance(preferred_cow, IceDragon) or isinstance(preferred_cow, Dragon):
+            if preferred_cow.can_breathe_fire() == False:
+                print("This dragon cannot breathe fire.")
+            else:
+                print("This dragon can breathe fire.")
 
 else:
     # find the specific cow based o the name

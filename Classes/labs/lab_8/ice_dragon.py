@@ -17,5 +17,4 @@ class IceDragon(Dragon):
         Dragon.__init__(self, name, image)  # How do I know what arguments include here?
 
     def can_breathe_fire(self):
-        if Cow.get_name() == "ice-dragon":
-            return False
+        return False
