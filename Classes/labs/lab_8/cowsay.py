@@ -1,7 +1,8 @@
+from dragon import Dragon
 from heifer_generator import HeiferGenerator
 import sys
-import Dragon
-import IceDragon
+
+from ice_dragon import IceDragon
 
 #a list of cow objects
 cows = HeiferGenerator.get_cows()
@@ -31,6 +32,7 @@ elif args[1] == "-n":
     message = " ".join(args[3:]) # return a string from a list of strings
     # #and print it out the massage
     preferred_cow = find_cow(name_of_cow, cows)
+    print(type(preferred_cow))
     if preferred_cow is None:
         print(f"Could not find {name_of_cow} cow!")
     else:
